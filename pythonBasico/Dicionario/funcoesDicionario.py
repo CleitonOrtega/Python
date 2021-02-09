@@ -9,6 +9,12 @@ def inserir(dicionario):
     dicionario[input("Digite o login: ").upper()]= [input("Digite seu nome: ").upper(),
                                                     input("Digite a última data de acesso: "),
                                                     input("Qual a útilma estação acessada: ").upper()]
+    salvar(dicionario)
+
+def salvar(dicionario):
+    with open("bd_Dicionario.txt", "a") as arquivo:
+        for chave,valor in dicionario.items():
+            arquivo.write(chave + " : " + str(valor))
 
 def pesquisar(dicionario,nomePesquisa):
     print(dicionario.get(nomePesquisa))
